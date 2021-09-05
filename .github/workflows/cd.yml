@@ -1,0 +1,35 @@
+name: CD Workflow
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  generate:
+    name: Generate
+    runs-on: ubuntu-latest
+    env:
+      GIT_AUTHOR_NAME: 'github-actions[bot]'
+      GIT_AUTHOR_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
+      GIT_COMMITTER_NAME: 'github-actions[bot]'
+      GIT_COMMITTER_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
+      OPENAPI2JSONSCHEMA_URL: 'https://raw.githubusercontent.com/yannh/kubeconform/master/scripts/openapi2jsonschema.py'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          pip install --user remarshal
+          curl -sSLf "$OPENAPI2JSONSCHEMA_URL" > scripts/openapi2jsonschema
+          chmod +x scripts/openapi2jsonschema
+      - name: Clean up
+        run: |
+          rm -rf schemas
+      - name: Generate schemas
+        run: |
+          scripts/generate
+      - name: Commit
+        run: |
+          git add --all
+          git commit --message='[skip ci] Update schemas'
+          git push origin master

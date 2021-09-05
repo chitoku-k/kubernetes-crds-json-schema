@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+scripts=$PWD/scripts
+
+toml2json ./crds.toml |
+    jq -r '.crds[] | "\(.apiVersion) \(.url)"' |
+    while read apiVersion url; do
+        dir=schemas/$apiVersion
+        mkdir -p "$dir" 2> /dev/null
+
+        (cd "$dir" && $scripts/openapi2jsonschema "$url")
+    done
