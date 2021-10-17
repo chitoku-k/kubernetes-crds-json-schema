@@ -696,7 +696,6 @@
           "additionalProperties": false
         },
         "image": {
-          "default": "rabbitmq:3.8.21-management",
           "description": "Image is the name of the RabbitMQ docker image to use for RabbitMQ nodes in the RabbitmqCluster. Must be provided together with ImagePullSecrets in order to use an image in a private registry.",
           "type": "string"
         },
@@ -6091,6 +6090,61 @@
           "type": "object",
           "additionalProperties": false
         },
+        "secretBackend": {
+          "description": "Secret backend configuration for the RabbitmqCluster. Enables to fetch default user credentials and certificates from K8s external secret stores.",
+          "properties": {
+            "vault": {
+              "description": "VaultSpec will add Vault annotations (see https://www.vaultproject.io/docs/platform/k8s/injector/annotations) to RabbitMQ Pods. It requires a Vault Agent Sidecar Injector (https://www.vaultproject.io/docs/platform/k8s/injector) to be installed in the K8s cluster. The injector is a K8s Mutation Webhook Controller that alters RabbitMQ Pod specifications (based on the added Vault annotations) to include Vault Agent containers that render Vault secrets to the volume.",
+              "properties": {
+                "annotations": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Vault annotations that override the Vault annotations set by the cluster-operator. For a list of valid Vault annotations, see https://www.vaultproject.io/docs/platform/k8s/injector/annotations",
+                  "type": "object"
+                },
+                "defaultUserPath": {
+                  "description": "Path in Vault to access a KV (Key-Value) secret with the fields username and password for the default user. For example \"secret/data/rabbitmq/config\".",
+                  "type": "string"
+                },
+                "defaultUserUpdaterImage": {
+                  "description": "Sidecar container that updates the default user's password in RabbitMQ when it changes in Vault. Additionally, it updates /var/lib/rabbitmq/.rabbitmqadmin.conf (used by rabbitmqadmin CLI). Set to empty string to disable the sidecar container.",
+                  "type": "string"
+                },
+                "role": {
+                  "description": "Role in Vault. If vault.defaultUserPath is set, this role must have capability to read the pre-created default user credential in Vault. If vault.tls is set, this role must have capability to create and update certificates in the Vault PKI engine for the domains \"<namespace>\" and \"<namespace>.svc\".",
+                  "type": "string"
+                },
+                "tls": {
+                  "properties": {
+                    "altNames": {
+                      "description": "Specifies the requested Subject Alternative Names (SANs), in a comma-delimited list. These will be appended to the SANs added by the cluster-operator. The cluster-operator will add SANs: \"<RabbitmqCluster name>-server-<index>.<RabbitmqCluster name>-nodes.<namespace>\" for each pod, e.g. \"myrabbit-server-0.myrabbit-nodes.default\".",
+                      "type": "string"
+                    },
+                    "commonName": {
+                      "description": "Specifies the requested certificate Common Name (CN). Defaults to <serviceName>.<namespace>.svc if not provided.",
+                      "type": "string"
+                    },
+                    "ipSans": {
+                      "description": "Specifies the requested IP Subject Alternative Names, in a comma-delimited list.",
+                      "type": "string"
+                    },
+                    "pkiIssuerPath": {
+                      "description": "Path in Vault PKI engine. For example \"pki/issue/hashicorp-com\". required",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "additionalProperties": false
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        },
         "service": {
           "default": {
             "type": "ClusterIP"
@@ -6188,7 +6242,7 @@
       "description": "Status presents the observed state of RabbitmqCluster",
       "properties": {
         "binding": {
-          "description": "Binding exposes a secret containing the binding information for this RabbitmqCluster. It implements the service binding Provisioned Service duck type. See: https://k8s-service-bindings.github.io/spec/#provisioned-service",
+          "description": "Binding exposes a secret containing the binding information for this RabbitmqCluster. It implements the service binding Provisioned Service duck type. See: https://github.com/servicebinding/spec#provisioned-service",
           "properties": {
             "name": {
               "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
