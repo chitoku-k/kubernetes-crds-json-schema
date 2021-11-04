@@ -20,7 +20,7 @@ url = 'https://docs.projectcalico.org/archive/v3.20/manifests/crds.yaml'
 
 [[crds]]
 apiVersion = 'minio.min.io/v2'
-url = 'https://raw.githubusercontent.com/minio/operator/v4.2.14/manifests/tenants.minio.min.io.crd.yaml'
+url = 'https://raw.githubusercontent.com/minio/operator/v4.3.2/manifests/tenants.minio.min.io.crd.yaml'
 
 [[crds]]
 apiVersion = 'k8s.amaiz.com/v1alpha1'
