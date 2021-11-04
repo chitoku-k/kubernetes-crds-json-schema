@@ -12,7 +12,7 @@ url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.7.1/manife
 
 [[crds]]
 apiVersion = 'cert-manager.io/v1'
-url = 'https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.crds.yaml'
+url = 'https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.crds.yaml'
 
 [[crds]]
 apiVersion = 'crd.projectcalico.org/v1'
