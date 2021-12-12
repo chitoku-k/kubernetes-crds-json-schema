@@ -19,6 +19,10 @@ apiVersion = 'crd.projectcalico.org/v1'
 url = 'https://docs.projectcalico.org/archive/v3.20/manifests/crds.yaml'
 
 [[crds]]
+apiVersion = 'networking.istio.io/v1alpha3'
+url = 'https://raw.githubusercontent.com/istio/istio/1.12.1/manifests/charts/base/crds/crd-all.gen.yaml'
+
+[[crds]]
 apiVersion = 'minio.min.io/v2'
 url = 'https://raw.githubusercontent.com/minio/operator/v4.3.2/manifests/tenants.minio.min.io.crd.yaml'
 
