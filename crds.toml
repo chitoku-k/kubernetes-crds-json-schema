@@ -16,7 +16,7 @@ url = 'https://github.com/jetstack/cert-manager/releases/download/v1.8.0/cert-ma
 
 [[crds]]
 apiVersion = 'crd.projectcalico.org/v1'
-url = 'https://docs.projectcalico.org/archive/v3.20/manifests/crds.yaml'
+url = 'https://docs.projectcalico.org/archive/v3.22/manifests/crds.yaml'
 
 [[crds]]
 apiVersion = 'networking.istio.io/v1alpha3'
