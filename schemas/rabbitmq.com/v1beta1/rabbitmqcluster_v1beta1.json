@@ -249,7 +249,7 @@
                             "additionalProperties": false
                           },
                           "namespaceSelector": {
-                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is alpha-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
                             "properties": {
                               "matchExpressions": {
                                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -375,7 +375,7 @@
                         "additionalProperties": false
                       },
                       "namespaceSelector": {
-                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is alpha-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
                         "properties": {
                           "matchExpressions": {
                             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -498,7 +498,7 @@
                             "additionalProperties": false
                           },
                           "namespaceSelector": {
-                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is alpha-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
                             "properties": {
                               "matchExpressions": {
                                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -624,7 +624,7 @@
                         "additionalProperties": false
                       },
                       "namespaceSelector": {
-                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is alpha-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
                         "properties": {
                           "matchExpressions": {
                             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -845,7 +845,8 @@
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "type": "object"
+                      "type": "object",
+                      "x-kubernetes-map-type": "atomic"
                     },
                     "sessionAffinity": {
                       "type": "string"
@@ -865,12 +866,6 @@
                       },
                       "type": "object",
                       "additionalProperties": false
-                    },
-                    "topologyKeys": {
-                      "items": {
-                        "type": "string"
-                      },
-                      "type": "array"
                     },
                     "type": {
                       "type": "string"
@@ -1921,6 +1916,22 @@
                                         "format": "int32",
                                         "type": "integer"
                                       },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
+                                      },
                                       "httpGet": {
                                         "properties": {
                                           "host": {
@@ -2071,6 +2082,22 @@
                                       "failureThreshold": {
                                         "format": "int32",
                                         "type": "integer"
+                                      },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
                                       },
                                       "httpGet": {
                                         "properties": {
@@ -2287,6 +2314,9 @@
                                           "gmsaCredentialSpecName": {
                                             "type": "string"
                                           },
+                                          "hostProcess": {
+                                            "type": "boolean"
+                                          },
                                           "runAsUserName": {
                                             "type": "string"
                                           }
@@ -2315,6 +2345,22 @@
                                       "failureThreshold": {
                                         "format": "int32",
                                         "type": "integer"
+                                      },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
                                       },
                                       "httpGet": {
                                         "properties": {
@@ -2888,6 +2934,22 @@
                                         "format": "int32",
                                         "type": "integer"
                                       },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
+                                      },
                                       "httpGet": {
                                         "properties": {
                                           "host": {
@@ -3014,7 +3076,12 @@
                                       "type": "object",
                                       "additionalProperties": false
                                     },
-                                    "type": "array"
+                                    "type": "array",
+                                    "x-kubernetes-list-map-keys": [
+                                      "containerPort",
+                                      "protocol"
+                                    ],
+                                    "x-kubernetes-list-type": "map"
                                   },
                                   "readinessProbe": {
                                     "properties": {
@@ -3033,6 +3100,22 @@
                                       "failureThreshold": {
                                         "format": "int32",
                                         "type": "integer"
+                                      },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
                                       },
                                       "httpGet": {
                                         "properties": {
@@ -3249,6 +3332,9 @@
                                           "gmsaCredentialSpecName": {
                                             "type": "string"
                                           },
+                                          "hostProcess": {
+                                            "type": "boolean"
+                                          },
                                           "runAsUserName": {
                                             "type": "string"
                                           }
@@ -3277,6 +3363,22 @@
                                       "failureThreshold": {
                                         "format": "int32",
                                         "type": "integer"
+                                      },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
                                       },
                                       "httpGet": {
                                         "properties": {
@@ -3856,6 +3958,22 @@
                                         "format": "int32",
                                         "type": "integer"
                                       },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
+                                      },
                                       "httpGet": {
                                         "properties": {
                                           "host": {
@@ -4006,6 +4124,22 @@
                                       "failureThreshold": {
                                         "format": "int32",
                                         "type": "integer"
+                                      },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
                                       },
                                       "httpGet": {
                                         "properties": {
@@ -4222,6 +4356,9 @@
                                           "gmsaCredentialSpecName": {
                                             "type": "string"
                                           },
+                                          "hostProcess": {
+                                            "type": "boolean"
+                                          },
                                           "runAsUserName": {
                                             "type": "string"
                                           }
@@ -4250,6 +4387,22 @@
                                       "failureThreshold": {
                                         "format": "int32",
                                         "type": "integer"
+                                      },
+                                      "grpc": {
+                                        "properties": {
+                                          "port": {
+                                            "format": "int32",
+                                            "type": "integer"
+                                          },
+                                          "service": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "port"
+                                        ],
+                                        "type": "object",
+                                        "additionalProperties": false
                                       },
                                       "httpGet": {
                                         "properties": {
@@ -4430,7 +4583,20 @@
                               "additionalProperties": {
                                 "type": "string"
                               },
-                              "type": "object"
+                              "type": "object",
+                              "x-kubernetes-map-type": "atomic"
+                            },
+                            "os": {
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name"
+                              ],
+                              "type": "object",
+                              "additionalProperties": false
                             },
                             "overhead": {
                               "additionalProperties": {
@@ -4567,6 +4733,9 @@
                                     },
                                     "gmsaCredentialSpecName": {
                                       "type": "string"
+                                    },
+                                    "hostProcess": {
+                                      "type": "boolean"
                                     },
                                     "runAsUserName": {
                                       "type": "string"
@@ -5004,6 +5173,25 @@
                                                 "type": "array"
                                               },
                                               "dataSource": {
+                                                "properties": {
+                                                  "apiGroup": {
+                                                    "type": "string"
+                                                  },
+                                                  "kind": {
+                                                    "type": "string"
+                                                  },
+                                                  "name": {
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "kind",
+                                                  "name"
+                                                ],
+                                                "type": "object",
+                                                "additionalProperties": false
+                                              },
+                                              "dataSourceRef": {
                                                 "properties": {
                                                   "apiGroup": {
                                                     "type": "string"
@@ -5851,6 +6039,25 @@
                                 "type": "array"
                               },
                               "dataSource": {
+                                "properties": {
+                                  "apiGroup": {
+                                    "type": "string"
+                                  },
+                                  "kind": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "kind",
+                                  "name"
+                                ],
+                                "type": "object",
+                                "additionalProperties": false
+                              },
+                              "dataSourceRef": {
                                 "properties": {
                                   "apiGroup": {
                                     "type": "string"

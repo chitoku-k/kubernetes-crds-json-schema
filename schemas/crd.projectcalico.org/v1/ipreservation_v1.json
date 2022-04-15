@@ -12,25 +12,16 @@
       "type": "object"
     },
     "spec": {
-      "description": "IPAMHandleSpec contains the specification for an IPAMHandle resource.",
+      "description": "IPReservationSpec contains the specification for an IPReservation resource.",
       "properties": {
-        "block": {
-          "additionalProperties": {
-            "type": "integer"
+        "reservedCIDRs": {
+          "description": "ReservedCIDRs is a list of CIDRs and/or IP addresses that Calico IPAM will exclude from new allocations.",
+          "items": {
+            "type": "string"
           },
-          "type": "object"
-        },
-        "deleted": {
-          "type": "boolean"
-        },
-        "handleID": {
-          "type": "string"
+          "type": "array"
         }
       },
-      "required": [
-        "block",
-        "handleID"
-      ],
       "type": "object",
       "additionalProperties": false
     }
