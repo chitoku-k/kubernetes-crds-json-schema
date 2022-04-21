@@ -21,12 +21,24 @@
     "configuration": {
       "type": "object",
       "properties": {
+        "crd_categories": {
+          "type": "array",
+          "nullable": true,
+          "items": {
+            "type": "string"
+          }
+        },
         "docker_image": {
           "type": "string",
-          "default": "registry.opensource.zalan.do/acid/spilo-14:2.1-p3"
+          "default": "registry.opensource.zalan.do/acid/spilo-14:2.1-p5"
+        },
+        "enable_crd_registration": {
+          "type": "boolean",
+          "default": true
         },
         "enable_crd_validation": {
           "type": "boolean",
+          "description": "deprecated",
           "default": true
         },
         "enable_lazy_spilo_upgrade": {
@@ -55,11 +67,13 @@
         },
         "max_instances": {
           "type": "integer",
+          "description": "-1 = disabled",
           "minimum": -1,
           "default": -1
         },
         "min_instances": {
           "type": "integer",
+          "description": "-1 = disabled",
           "minimum": -1,
           "default": -1
         },
@@ -97,6 +111,25 @@
         "users": {
           "type": "object",
           "properties": {
+            "additional_owner_roles": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "enable_password_rotation": {
+              "type": "boolean",
+              "default": false
+            },
+            "password_rotation_interval": {
+              "type": "integer",
+              "default": 90
+            },
+            "password_rotation_user_retention": {
+              "type": "integer",
+              "default": 180
+            },
             "replication_username": {
               "type": "string",
               "default": "standby"
@@ -114,6 +147,12 @@
             "major_version_upgrade_mode": {
               "type": "string",
               "default": "off"
+            },
+            "major_version_upgrade_team_allow_list": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "minimal_major_version": {
               "type": "string",
@@ -170,6 +209,10 @@
                 "type": "string"
               }
             },
+            "enable_cross_namespace_secret": {
+              "type": "boolean",
+              "default": false
+            },
             "enable_init_containers": {
               "type": "boolean",
               "default": true
@@ -185,6 +228,12 @@
             "enable_sidecars": {
               "type": "boolean",
               "default": true
+            },
+            "ignored_annotations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "infrastructure_roles_secret_name": {
               "type": "string"
@@ -249,6 +298,13 @@
               "additionalProperties": {
                 "type": "string"
               }
+            },
+            "node_readiness_label_merge": {
+              "type": "string",
+              "enum": [
+                "AND",
+                "OR"
+              ]
             },
             "oauth_token_secret_name": {
               "type": "string",
@@ -380,6 +436,14 @@
         "timeouts": {
           "type": "object",
           "properties": {
+            "patroni_api_check_interval": {
+              "type": "string",
+              "default": "1s"
+            },
+            "patroni_api_check_timeout": {
+              "type": "string",
+              "default": "5s"
+            },
             "pod_label_wait_timeout": {
               "type": "string",
               "default": "10m"
@@ -424,7 +488,15 @@
               "type": "boolean",
               "default": true
             },
+            "enable_master_pooler_load_balancer": {
+              "type": "boolean",
+              "default": false
+            },
             "enable_replica_load_balancer": {
+              "type": "boolean",
+              "default": false
+            },
+            "enable_replica_pooler_load_balancer": {
               "type": "boolean",
               "default": false
             },
@@ -495,7 +567,7 @@
           "properties": {
             "logical_backup_docker_image": {
               "type": "string",
-              "default": "registry.opensource.zalan.do/acid/logical-backup:v1.7.1"
+              "default": "registry.opensource.zalan.do/acid/logical-backup:v1.8.0"
             },
             "logical_backup_google_application_credentials": {
               "type": "string"
@@ -524,6 +596,9 @@
               "type": "string"
             },
             "logical_backup_s3_sse": {
+              "type": "string"
+            },
+            "logical_backup_s3_retention_time": {
               "type": "string"
             },
             "logical_backup_schedule": {
@@ -595,7 +670,8 @@
                 "type": "string"
               },
               "default": [
-                "admin"
+                "admin",
+                "cron_admin"
               ]
             },
             "role_deletion_suffix": {
@@ -689,7 +765,7 @@
             },
             "connection_pooler_image": {
               "type": "string",
-              "default": "registry.opensource.zalan.do/acid/pgbouncer:master-19"
+              "default": "registry.opensource.zalan.do/acid/pgbouncer:master-22"
             },
             "connection_pooler_max_db_connections": {
               "type": "integer",
