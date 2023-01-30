@@ -24,7 +24,7 @@ url = 'https://raw.githubusercontent.com/istio/istio/1.12.1/manifests/charts/bas
 
 [[crds]]
 apiVersion = 'minio.min.io/v2'
-url = 'https://raw.githubusercontent.com/minio/operator/v4.4.15/manifests/minio.min.io_tenants.yaml'
+url = 'https://raw.githubusercontent.com/minio/operator/v4.5.8/manifests/minio.min.io_tenants.yaml'
 
 [[crds]]
 apiVersion = 'k8s.amaiz.com/v1alpha1'
