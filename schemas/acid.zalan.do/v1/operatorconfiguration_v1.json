@@ -30,7 +30,7 @@
         },
         "docker_image": {
           "type": "string",
-          "default": "registry.opensource.zalan.do/acid/spilo-14:2.1-p5"
+          "default": "ghcr.io/zalando/spilo-15:2.1-p9"
         },
         "enable_crd_registration": {
           "type": "boolean",
@@ -57,9 +57,16 @@
           "type": "boolean",
           "default": false
         },
+        "enable_team_id_clustername_prefix": {
+          "type": "boolean",
+          "default": false
+        },
         "etcd_host": {
           "type": "string",
           "default": ""
+        },
+        "ignore_instance_limits_annotation_key": {
+          "type": "string"
         },
         "kubernetes_use_configmaps": {
           "type": "boolean",
@@ -156,11 +163,11 @@
             },
             "minimal_major_version": {
               "type": "string",
-              "default": "9.6"
+              "default": "11"
             },
             "target_major_version": {
               "type": "string",
-              "default": "14"
+              "default": "15"
             }
           },
           "additionalProperties": false
@@ -224,6 +231,10 @@
             "enable_pod_disruption_budget": {
               "type": "boolean",
               "default": true
+            },
+            "enable_readiness_probe": {
+              "type": "boolean",
+              "default": false
             },
             "enable_sidecars": {
               "type": "boolean",
@@ -314,6 +325,10 @@
               "type": "string",
               "default": "postgres-{cluster}-pdb"
             },
+            "pod_antiaffinity_preferred_during_scheduling": {
+              "type": "boolean",
+              "default": false
+            },
             "pod_antiaffinity_topology_key": {
               "type": "string",
               "default": "kubernetes.io/hostname"
@@ -359,6 +374,10 @@
               "type": "string",
               "default": "{username}.{cluster}.credentials.{tprkind}.{tprgroup}"
             },
+            "share_pgsocket_with_sidecars": {
+              "type": "boolean",
+              "default": false
+            },
             "spilo_allow_privilege_escalation": {
               "type": "boolean",
               "default": true
@@ -380,6 +399,7 @@
               "type": "string",
               "enum": [
                 "ebs",
+                "mixed",
                 "pvc",
                 "off"
               ],
@@ -419,6 +439,14 @@
               "type": "string",
               "pattern": "^(\\d+(e\\d+)?|\\d+(\\.\\d+)?(e\\d+)?[EPTGMK]i?)$",
               "default": "100Mi"
+            },
+            "max_cpu_request": {
+              "type": "string",
+              "pattern": "^(\\d+m|\\d+(\\.\\d{1,3})?)$"
+            },
+            "max_memory_request": {
+              "type": "string",
+              "pattern": "^(\\d+(e\\d+)?|\\d+(\\.\\d+)?(e\\d+)?[EPTGMK]i?)$"
             },
             "min_cpu_limit": {
               "type": "string",
@@ -510,9 +538,17 @@
             },
             "master_dns_name_format": {
               "type": "string",
+              "default": "{cluster}.{namespace}.{hostedzone}"
+            },
+            "master_legacy_dns_name_format": {
+              "type": "string",
               "default": "{cluster}.{team}.{hostedzone}"
             },
             "replica_dns_name_format": {
+              "type": "string",
+              "default": "{cluster}-repl.{namespace}.{hostedzone}"
+            },
+            "replica_legacy_dns_name_format": {
               "type": "string",
               "default": "{cluster}-repl.{team}.{hostedzone}"
             }
@@ -565,9 +601,26 @@
         "logical_backup": {
           "type": "object",
           "properties": {
+            "logical_backup_azure_storage_account_name": {
+              "type": "string"
+            },
+            "logical_backup_azure_storage_container": {
+              "type": "string"
+            },
+            "logical_backup_azure_storage_account_key": {
+              "type": "string"
+            },
+            "logical_backup_cpu_limit": {
+              "type": "string",
+              "pattern": "^(\\d+m|\\d+(\\.\\d{1,3})?)$"
+            },
+            "logical_backup_cpu_request": {
+              "type": "string",
+              "pattern": "^(\\d+m|\\d+(\\.\\d{1,3})?)$"
+            },
             "logical_backup_docker_image": {
               "type": "string",
-              "default": "registry.opensource.zalan.do/acid/logical-backup:v1.8.0"
+              "default": "registry.opensource.zalan.do/acid/logical-backup:v1.9.0"
             },
             "logical_backup_google_application_credentials": {
               "type": "string"
@@ -576,8 +629,21 @@
               "type": "string",
               "default": "logical-backup-"
             },
+            "logical_backup_memory_limit": {
+              "type": "string",
+              "pattern": "^(\\d+(e\\d+)?|\\d+(\\.\\d+)?(e\\d+)?[EPTGMK]i?)$"
+            },
+            "logical_backup_memory_request": {
+              "type": "string",
+              "pattern": "^(\\d+(e\\d+)?|\\d+(\\.\\d+)?(e\\d+)?[EPTGMK]i?)$"
+            },
             "logical_backup_provider": {
               "type": "string",
+              "enum": [
+                "az",
+                "gcs",
+                "s3"
+              ],
               "default": "s3"
             },
             "logical_backup_s3_access_key_id": {
@@ -765,7 +831,7 @@
             },
             "connection_pooler_image": {
               "type": "string",
-              "default": "registry.opensource.zalan.do/acid/pgbouncer:master-22"
+              "default": "registry.opensource.zalan.do/acid/pgbouncer:master-26"
             },
             "connection_pooler_max_db_connections": {
               "type": "integer",
@@ -803,6 +869,16 @@
               "type": "string",
               "pattern": "^(\\d+(e\\d+)?|\\d+(\\.\\d+)?(e\\d+)?[EPTGMK]i?)$",
               "default": "100Mi"
+            }
+          },
+          "additionalProperties": false
+        },
+        "patroni": {
+          "type": "object",
+          "properties": {
+            "failsafe_mode": {
+              "type": "boolean",
+              "default": false
             }
           },
           "additionalProperties": false

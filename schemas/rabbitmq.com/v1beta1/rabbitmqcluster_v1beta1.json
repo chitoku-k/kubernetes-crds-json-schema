@@ -91,6 +91,7 @@
                           }
                         },
                         "type": "object",
+                        "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
                       },
                       "weight": {
@@ -178,6 +179,7 @@
                           }
                         },
                         "type": "object",
+                        "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
                       },
                       "type": "array"
@@ -187,6 +189,7 @@
                     "nodeSelectorTerms"
                   ],
                   "type": "object",
+                  "x-kubernetes-map-type": "atomic",
                   "additionalProperties": false
                 }
               },
@@ -246,10 +249,11 @@
                               }
                             },
                             "type": "object",
+                            "x-kubernetes-map-type": "atomic",
                             "additionalProperties": false
                           },
                           "namespaceSelector": {
-                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
                             "properties": {
                               "matchExpressions": {
                                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -290,10 +294,11 @@
                               }
                             },
                             "type": "object",
+                            "x-kubernetes-map-type": "atomic",
                             "additionalProperties": false
                           },
                           "namespaces": {
-                            "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\"",
+                            "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
                             "items": {
                               "type": "string"
                             },
@@ -372,10 +377,11 @@
                           }
                         },
                         "type": "object",
+                        "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
                       },
                       "namespaceSelector": {
-                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
                         "properties": {
                           "matchExpressions": {
                             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -416,10 +422,11 @@
                           }
                         },
                         "type": "object",
+                        "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
                       },
                       "namespaces": {
-                        "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\"",
+                        "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
                         "items": {
                           "type": "string"
                         },
@@ -495,10 +502,11 @@
                               }
                             },
                             "type": "object",
+                            "x-kubernetes-map-type": "atomic",
                             "additionalProperties": false
                           },
                           "namespaceSelector": {
-                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                            "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
                             "properties": {
                               "matchExpressions": {
                                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -539,10 +547,11 @@
                               }
                             },
                             "type": "object",
+                            "x-kubernetes-map-type": "atomic",
                             "additionalProperties": false
                           },
                           "namespaces": {
-                            "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\"",
+                            "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
                             "items": {
                               "type": "string"
                             },
@@ -621,10 +630,11 @@
                           }
                         },
                         "type": "object",
+                        "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
                       },
                       "namespaceSelector": {
-                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.",
+                        "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
                         "properties": {
                           "matchExpressions": {
                             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -665,10 +675,11 @@
                           }
                         },
                         "type": "object",
+                        "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
                       },
                       "namespaces": {
-                        "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\"",
+                        "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
                         "items": {
                           "type": "string"
                         },
@@ -695,6 +706,13 @@
           "type": "object",
           "additionalProperties": false
         },
+        "delayStartSeconds": {
+          "default": 30,
+          "description": "DelayStartSeconds is the time the init container (`setup-container`) will sleep before terminating. This effectively delays the time between starting the Pod and starting the `rabbitmq` container. RabbitMQ relies on up-to-date DNS entries early during peer discovery. The purpose of this artificial delay is to ensure that DNS entries are up-to-date when booting RabbitMQ. For more information, see https://github.com/kubernetes/kubernetes/issues/92559 If your Kubernetes DNS backend is configured with a low DNS cache value or publishes not ready addresses promptly, you can decrase this value or set it to 0.",
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        },
         "image": {
           "description": "Image is the name of the RabbitMQ docker image to use for RabbitMQ nodes in the RabbitmqCluster. Must be provided together with ImagePullSecrets in order to use an image in a private registry.",
           "type": "string"
@@ -710,6 +728,7 @@
               }
             },
             "type": "object",
+            "x-kubernetes-map-type": "atomic",
             "additionalProperties": false
           },
           "type": "array"
@@ -900,6 +919,10 @@
                 },
                 "spec": {
                   "properties": {
+                    "minReadySeconds": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
                     "podManagementPolicy": {
                       "type": "string"
                     },
@@ -942,6 +965,7 @@
                         }
                       },
                       "type": "object",
+                      "x-kubernetes-map-type": "atomic",
                       "additionalProperties": false
                     },
                     "serviceName": {
@@ -1040,6 +1064,7 @@
                                               }
                                             },
                                             "type": "object",
+                                            "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
                                           },
                                           "weight": {
@@ -1113,6 +1138,7 @@
                                               }
                                             },
                                             "type": "object",
+                                            "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
                                           },
                                           "type": "array"
@@ -1122,6 +1148,7 @@
                                         "nodeSelectorTerms"
                                       ],
                                       "type": "object",
+                                      "x-kubernetes-map-type": "atomic",
                                       "additionalProperties": false
                                     }
                                   },
@@ -1170,6 +1197,7 @@
                                                   }
                                                 },
                                                 "type": "object",
+                                                "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
                                               "namespaceSelector": {
@@ -1207,6 +1235,7 @@
                                                   }
                                                 },
                                                 "type": "object",
+                                                "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
                                               "namespaces": {
@@ -1277,6 +1306,7 @@
                                               }
                                             },
                                             "type": "object",
+                                            "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
                                           },
                                           "namespaceSelector": {
@@ -1314,6 +1344,7 @@
                                               }
                                             },
                                             "type": "object",
+                                            "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
                                           },
                                           "namespaces": {
@@ -1380,6 +1411,7 @@
                                                   }
                                                 },
                                                 "type": "object",
+                                                "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
                                               "namespaceSelector": {
@@ -1417,6 +1449,7 @@
                                                   }
                                                 },
                                                 "type": "object",
+                                                "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
                                               "namespaces": {
@@ -1487,6 +1520,7 @@
                                               }
                                             },
                                             "type": "object",
+                                            "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
                                           },
                                           "namespaceSelector": {
@@ -1524,6 +1558,7 @@
                                               }
                                             },
                                             "type": "object",
+                                            "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
                                           },
                                           "namespaces": {
@@ -1597,6 +1632,7 @@
                                                 "key"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "fieldRef": {
@@ -1612,6 +1648,7 @@
                                                 "fieldPath"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "resourceFieldRef": {
@@ -1639,6 +1676,7 @@
                                                 "resource"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "secretKeyRef": {
@@ -1657,6 +1695,7 @@
                                                 "key"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             }
                                           },
@@ -1685,6 +1724,7 @@
                                             }
                                           },
                                           "type": "object",
+                                          "x-kubernetes-map-type": "atomic",
                                           "additionalProperties": false
                                         },
                                         "prefix": {
@@ -1700,6 +1740,7 @@
                                             }
                                           },
                                           "type": "object",
+                                          "x-kubernetes-map-type": "atomic",
                                           "additionalProperties": false
                                         }
                                       },
@@ -2615,6 +2656,7 @@
                                                 "key"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "fieldRef": {
@@ -2630,6 +2672,7 @@
                                                 "fieldPath"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "resourceFieldRef": {
@@ -2657,6 +2700,7 @@
                                                 "resource"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "secretKeyRef": {
@@ -2675,6 +2719,7 @@
                                                 "key"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             }
                                           },
@@ -2703,6 +2748,7 @@
                                             }
                                           },
                                           "type": "object",
+                                          "x-kubernetes-map-type": "atomic",
                                           "additionalProperties": false
                                         },
                                         "prefix": {
@@ -2718,6 +2764,7 @@
                                             }
                                           },
                                           "type": "object",
+                                          "x-kubernetes-map-type": "atomic",
                                           "additionalProperties": false
                                         }
                                       },
@@ -3582,6 +3629,9 @@
                             "hostPID": {
                               "type": "boolean"
                             },
+                            "hostUsers": {
+                              "type": "boolean"
+                            },
                             "hostname": {
                               "type": "string"
                             },
@@ -3593,6 +3643,7 @@
                                   }
                                 },
                                 "type": "object",
+                                "x-kubernetes-map-type": "atomic",
                                 "additionalProperties": false
                               },
                               "type": "array"
@@ -3639,6 +3690,7 @@
                                                 "key"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "fieldRef": {
@@ -3654,6 +3706,7 @@
                                                 "fieldPath"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "resourceFieldRef": {
@@ -3681,6 +3734,7 @@
                                                 "resource"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "secretKeyRef": {
@@ -3699,6 +3753,7 @@
                                                 "key"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             }
                                           },
@@ -3727,6 +3782,7 @@
                                             }
                                           },
                                           "type": "object",
+                                          "x-kubernetes-map-type": "atomic",
                                           "additionalProperties": false
                                         },
                                         "prefix": {
@@ -3742,6 +3798,7 @@
                                             }
                                           },
                                           "type": "object",
+                                          "x-kubernetes-map-type": "atomic",
                                           "additionalProperties": false
                                         }
                                       },
@@ -4830,11 +4887,29 @@
                                       }
                                     },
                                     "type": "object",
+                                    "x-kubernetes-map-type": "atomic",
                                     "additionalProperties": false
+                                  },
+                                  "matchLabelKeys": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array",
+                                    "x-kubernetes-list-type": "atomic"
                                   },
                                   "maxSkew": {
                                     "format": "int32",
                                     "type": "integer"
+                                  },
+                                  "minDomains": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                  },
+                                  "nodeAffinityPolicy": {
+                                    "type": "string"
+                                  },
+                                  "nodeTaintsPolicy": {
+                                    "type": "string"
                                   },
                                   "topologyKey": {
                                     "type": "string"
@@ -4954,6 +5029,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       },
                                       "user": {
@@ -4981,6 +5057,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       },
                                       "volumeID": {
@@ -5030,6 +5107,7 @@
                                       }
                                     },
                                     "type": "object",
+                                    "x-kubernetes-map-type": "atomic",
                                     "additionalProperties": false
                                   },
                                   "csi": {
@@ -5047,6 +5125,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       },
                                       "readOnly": {
@@ -5087,6 +5166,7 @@
                                                 "fieldPath"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "mode": {
@@ -5121,6 +5201,7 @@
                                                 "resource"
                                               ],
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             }
                                           },
@@ -5189,6 +5270,7 @@
                                                   "name"
                                                 ],
                                                 "type": "object",
+                                                "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
                                               "dataSourceRef": {
@@ -5208,6 +5290,7 @@
                                                   "name"
                                                 ],
                                                 "type": "object",
+                                                "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
                                               "resources": {
@@ -5281,6 +5364,7 @@
                                                   }
                                                 },
                                                 "type": "object",
+                                                "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
                                               "storageClassName": {
@@ -5359,6 +5443,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       }
                                     },
@@ -5494,6 +5579,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       },
                                       "targetPortal": {
@@ -5620,6 +5706,7 @@
                                                 }
                                               },
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "downwardAPI": {
@@ -5640,6 +5727,7 @@
                                                           "fieldPath"
                                                         ],
                                                         "type": "object",
+                                                        "x-kubernetes-map-type": "atomic",
                                                         "additionalProperties": false
                                                       },
                                                       "mode": {
@@ -5674,6 +5762,7 @@
                                                           "resource"
                                                         ],
                                                         "type": "object",
+                                                        "x-kubernetes-map-type": "atomic",
                                                         "additionalProperties": false
                                                       }
                                                     },
@@ -5722,6 +5811,7 @@
                                                 }
                                               },
                                               "type": "object",
+                                              "x-kubernetes-map-type": "atomic",
                                               "additionalProperties": false
                                             },
                                             "serviceAccountToken": {
@@ -5811,6 +5901,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       },
                                       "user": {
@@ -5845,6 +5936,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       },
                                       "sslEnabled": {
@@ -5925,6 +6017,7 @@
                                           }
                                         },
                                         "type": "object",
+                                        "x-kubernetes-map-type": "atomic",
                                         "additionalProperties": false
                                       },
                                       "volumeName": {
@@ -5982,6 +6075,17 @@
                       "properties": {
                         "rollingUpdate": {
                           "properties": {
+                            "maxUnavailable": {
+                              "anyOf": [
+                                {
+                                  "type": "integer"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "x-kubernetes-int-or-string": true
+                            },
                             "partition": {
                               "format": "int32",
                               "type": "integer"
@@ -6055,6 +6159,7 @@
                                   "name"
                                 ],
                                 "type": "object",
+                                "x-kubernetes-map-type": "atomic",
                                 "additionalProperties": false
                               },
                               "dataSourceRef": {
@@ -6074,6 +6179,7 @@
                                   "name"
                                 ],
                                 "type": "object",
+                                "x-kubernetes-map-type": "atomic",
                                 "additionalProperties": false
                               },
                               "resources": {
@@ -6147,6 +6253,7 @@
                                   }
                                 },
                                 "type": "object",
+                                "x-kubernetes-map-type": "atomic",
                                 "additionalProperties": false
                               },
                               "storageClassName": {
@@ -6300,6 +6407,18 @@
         "secretBackend": {
           "description": "Secret backend configuration for the RabbitmqCluster. Enables to fetch default user credentials and certificates from K8s external secret stores.",
           "properties": {
+            "externalSecret": {
+              "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
+              "properties": {
+                "name": {
+                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
+            },
             "vault": {
               "description": "VaultSpec will add Vault annotations (see https://www.vaultproject.io/docs/platform/k8s/injector/annotations) to RabbitMQ Pods. It requires a Vault Agent Sidecar Injector (https://www.vaultproject.io/docs/platform/k8s/injector) to be installed in the K8s cluster. The injector is a K8s Mutation Webhook Controller that alters RabbitMQ Pod specifications (based on the added Vault annotations) to include Vault Agent containers that render Vault secrets to the volume.",
               "properties": {
@@ -6457,6 +6576,7 @@
             }
           },
           "type": "object",
+          "x-kubernetes-map-type": "atomic",
           "additionalProperties": false
         },
         "conditions": {
