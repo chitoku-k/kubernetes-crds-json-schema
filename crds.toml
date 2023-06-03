@@ -32,4 +32,4 @@ url = 'https://raw.githubusercontent.com/amaizfinance/redis-operator/v0.2.1/depl
 
 [[crds]]
 apiVersion = 'rabbitmq.com/v1beta1'
-url = 'https://github.com/rabbitmq/cluster-operator/releases/download/v2.1.0/cluster-operator.yml'
+url = 'https://github.com/rabbitmq/cluster-operator/releases/download/v2.2.0/cluster-operator.yml'
