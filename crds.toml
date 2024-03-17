@@ -27,10 +27,6 @@ apiVersion = 'networking.istio.io/v1alpha3'
 url = 'https://raw.githubusercontent.com/istio/istio/1.12.1/manifests/charts/base/crds/crd-all.gen.yaml'
 
 [[crds]]
-apiVersion = 'minio.min.io/v2'
-url = 'https://raw.githubusercontent.com/minio/operator/v5.0.5/manifests/minio.min.io_tenants.yaml'
-
-[[crds]]
 apiVersion = 'k8s.amaiz.com/v1alpha1'
 url = 'https://raw.githubusercontent.com/amaizfinance/redis-operator/v0.2.1/deploy/crds/k8s_v1alpha1_redis_crd.yaml'
 
