@@ -208,7 +208,7 @@
                         "description": "Required. A pod affinity term, associated with the corresponding weight.",
                         "properties": {
                           "labelSelector": {
-                            "description": "A label query over a set of resources, in this case pods.",
+                            "description": "A label query over a set of resources, in this case pods. If it's null, this PodAffinityTerm matches with no Pods.",
                             "properties": {
                               "matchExpressions": {
                                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -251,6 +251,22 @@
                             "type": "object",
                             "x-kubernetes-map-type": "atomic",
                             "additionalProperties": false
+                          },
+                          "matchLabelKeys": {
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-kubernetes-list-type": "atomic"
+                          },
+                          "mismatchLabelKeys": {
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MismatchLabelKeys and LabelSelector. Also, MismatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
@@ -336,7 +352,7 @@
                     "description": "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running",
                     "properties": {
                       "labelSelector": {
-                        "description": "A label query over a set of resources, in this case pods.",
+                        "description": "A label query over a set of resources, in this case pods. If it's null, this PodAffinityTerm matches with no Pods.",
                         "properties": {
                           "matchExpressions": {
                             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -379,6 +395,22 @@
                         "type": "object",
                         "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
+                      },
+                      "matchLabelKeys": {
+                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
+                      },
+                      "mismatchLabelKeys": {
+                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MismatchLabelKeys and LabelSelector. Also, MismatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "namespaceSelector": {
                         "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
@@ -461,7 +493,7 @@
                         "description": "Required. A pod affinity term, associated with the corresponding weight.",
                         "properties": {
                           "labelSelector": {
-                            "description": "A label query over a set of resources, in this case pods.",
+                            "description": "A label query over a set of resources, in this case pods. If it's null, this PodAffinityTerm matches with no Pods.",
                             "properties": {
                               "matchExpressions": {
                                 "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -504,6 +536,22 @@
                             "type": "object",
                             "x-kubernetes-map-type": "atomic",
                             "additionalProperties": false
+                          },
+                          "matchLabelKeys": {
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-kubernetes-list-type": "atomic"
+                          },
+                          "mismatchLabelKeys": {
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MismatchLabelKeys and LabelSelector. Also, MismatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
@@ -589,7 +637,7 @@
                     "description": "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running",
                     "properties": {
                       "labelSelector": {
-                        "description": "A label query over a set of resources, in this case pods.",
+                        "description": "A label query over a set of resources, in this case pods. If it's null, this PodAffinityTerm matches with no Pods.",
                         "properties": {
                           "matchExpressions": {
                             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -632,6 +680,22 @@
                         "type": "object",
                         "x-kubernetes-map-type": "atomic",
                         "additionalProperties": false
+                      },
+                      "matchLabelKeys": {
+                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
+                      },
+                      "mismatchLabelKeys": {
+                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MismatchLabelKeys and LabelSelector. Also, MismatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "namespaceSelector": {
                         "description": "A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means \"this pod's namespace\". An empty selector ({}) matches all namespaces.",
@@ -1212,6 +1276,20 @@
                                                 "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
+                                              "matchLabelKeys": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array",
+                                                "x-kubernetes-list-type": "atomic"
+                                              },
+                                              "mismatchLabelKeys": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array",
+                                                "x-kubernetes-list-type": "atomic"
+                                              },
                                               "namespaceSelector": {
                                                 "properties": {
                                                   "matchExpressions": {
@@ -1320,6 +1398,20 @@
                                             "type": "object",
                                             "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
+                                          },
+                                          "matchLabelKeys": {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array",
+                                            "x-kubernetes-list-type": "atomic"
+                                          },
+                                          "mismatchLabelKeys": {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array",
+                                            "x-kubernetes-list-type": "atomic"
                                           },
                                           "namespaceSelector": {
                                             "properties": {
@@ -1426,6 +1518,20 @@
                                                 "x-kubernetes-map-type": "atomic",
                                                 "additionalProperties": false
                                               },
+                                              "matchLabelKeys": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array",
+                                                "x-kubernetes-list-type": "atomic"
+                                              },
+                                              "mismatchLabelKeys": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array",
+                                                "x-kubernetes-list-type": "atomic"
+                                              },
                                               "namespaceSelector": {
                                                 "properties": {
                                                   "matchExpressions": {
@@ -1534,6 +1640,20 @@
                                             "type": "object",
                                             "x-kubernetes-map-type": "atomic",
                                             "additionalProperties": false
+                                          },
+                                          "matchLabelKeys": {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array",
+                                            "x-kubernetes-list-type": "atomic"
+                                          },
+                                          "mismatchLabelKeys": {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array",
+                                            "x-kubernetes-list-type": "atomic"
                                           },
                                           "namespaceSelector": {
                                             "properties": {
@@ -1831,6 +1951,19 @@
                                             "type": "object",
                                             "additionalProperties": false
                                           },
+                                          "sleep": {
+                                            "properties": {
+                                              "seconds": {
+                                                "format": "int64",
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "seconds"
+                                            ],
+                                            "type": "object",
+                                            "additionalProperties": false
+                                          },
                                           "tcpSocket": {
                                             "properties": {
                                               "host": {
@@ -1916,6 +2049,19 @@
                                             },
                                             "required": [
                                               "port"
+                                            ],
+                                            "type": "object",
+                                            "additionalProperties": false
+                                          },
+                                          "sleep": {
+                                            "properties": {
+                                              "seconds": {
+                                                "format": "int64",
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "seconds"
                                             ],
                                             "type": "object",
                                             "additionalProperties": false
@@ -2247,6 +2393,26 @@
                                     "type": "object",
                                     "additionalProperties": false
                                   },
+                                  "resizePolicy": {
+                                    "items": {
+                                      "properties": {
+                                        "resourceName": {
+                                          "type": "string"
+                                        },
+                                        "restartPolicy": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "resourceName",
+                                        "restartPolicy"
+                                      ],
+                                      "type": "object",
+                                      "additionalProperties": false
+                                    },
+                                    "type": "array",
+                                    "x-kubernetes-list-type": "atomic"
+                                  },
                                   "resources": {
                                     "properties": {
                                       "claims": {
@@ -2301,6 +2467,9 @@
                                     },
                                     "type": "object",
                                     "additionalProperties": false
+                                  },
+                                  "restartPolicy": {
+                                    "type": "string"
                                   },
                                   "securityContext": {
                                     "properties": {
@@ -2874,6 +3043,19 @@
                                             "type": "object",
                                             "additionalProperties": false
                                           },
+                                          "sleep": {
+                                            "properties": {
+                                              "seconds": {
+                                                "format": "int64",
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "seconds"
+                                            ],
+                                            "type": "object",
+                                            "additionalProperties": false
+                                          },
                                           "tcpSocket": {
                                             "properties": {
                                               "host": {
@@ -2959,6 +3141,19 @@
                                             },
                                             "required": [
                                               "port"
+                                            ],
+                                            "type": "object",
+                                            "additionalProperties": false
+                                          },
+                                          "sleep": {
+                                            "properties": {
+                                              "seconds": {
+                                                "format": "int64",
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "seconds"
                                             ],
                                             "type": "object",
                                             "additionalProperties": false
@@ -3290,6 +3485,26 @@
                                     "type": "object",
                                     "additionalProperties": false
                                   },
+                                  "resizePolicy": {
+                                    "items": {
+                                      "properties": {
+                                        "resourceName": {
+                                          "type": "string"
+                                        },
+                                        "restartPolicy": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "resourceName",
+                                        "restartPolicy"
+                                      ],
+                                      "type": "object",
+                                      "additionalProperties": false
+                                    },
+                                    "type": "array",
+                                    "x-kubernetes-list-type": "atomic"
+                                  },
                                   "resources": {
                                     "properties": {
                                       "claims": {
@@ -3344,6 +3559,9 @@
                                     },
                                     "type": "object",
                                     "additionalProperties": false
+                                  },
+                                  "restartPolicy": {
+                                    "type": "string"
                                   },
                                   "securityContext": {
                                     "properties": {
@@ -3927,6 +4145,19 @@
                                             "type": "object",
                                             "additionalProperties": false
                                           },
+                                          "sleep": {
+                                            "properties": {
+                                              "seconds": {
+                                                "format": "int64",
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "seconds"
+                                            ],
+                                            "type": "object",
+                                            "additionalProperties": false
+                                          },
                                           "tcpSocket": {
                                             "properties": {
                                               "host": {
@@ -4012,6 +4243,19 @@
                                             },
                                             "required": [
                                               "port"
+                                            ],
+                                            "type": "object",
+                                            "additionalProperties": false
+                                          },
+                                          "sleep": {
+                                            "properties": {
+                                              "seconds": {
+                                                "format": "int64",
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "seconds"
                                             ],
                                             "type": "object",
                                             "additionalProperties": false
@@ -4343,6 +4587,26 @@
                                     "type": "object",
                                     "additionalProperties": false
                                   },
+                                  "resizePolicy": {
+                                    "items": {
+                                      "properties": {
+                                        "resourceName": {
+                                          "type": "string"
+                                        },
+                                        "restartPolicy": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "resourceName",
+                                        "restartPolicy"
+                                      ],
+                                      "type": "object",
+                                      "additionalProperties": false
+                                    },
+                                    "type": "array",
+                                    "x-kubernetes-list-type": "atomic"
+                                  },
                                   "resources": {
                                     "properties": {
                                       "claims": {
@@ -4397,6 +4661,9 @@
                                     },
                                     "type": "object",
                                     "additionalProperties": false
+                                  },
+                                  "restartPolicy": {
+                                    "type": "string"
                                   },
                                   "securityContext": {
                                     "properties": {
@@ -5416,25 +5683,6 @@
                                               },
                                               "resources": {
                                                 "properties": {
-                                                  "claims": {
-                                                    "items": {
-                                                      "properties": {
-                                                        "name": {
-                                                          "type": "string"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "name"
-                                                      ],
-                                                      "type": "object",
-                                                      "additionalProperties": false
-                                                    },
-                                                    "type": "array",
-                                                    "x-kubernetes-list-map-keys": [
-                                                      "name"
-                                                    ],
-                                                    "x-kubernetes-list-type": "map"
-                                                  },
                                                   "limits": {
                                                     "additionalProperties": {
                                                       "anyOf": [
@@ -5508,6 +5756,9 @@
                                                 "additionalProperties": false
                                               },
                                               "storageClassName": {
+                                                "type": "string"
+                                              },
+                                              "volumeAttributesClassName": {
                                                 "type": "string"
                                               },
                                               "volumeMode": {
@@ -5813,6 +6064,65 @@
                                       "sources": {
                                         "items": {
                                           "properties": {
+                                            "clusterTrustBundle": {
+                                              "properties": {
+                                                "labelSelector": {
+                                                  "properties": {
+                                                    "matchExpressions": {
+                                                      "items": {
+                                                        "properties": {
+                                                          "key": {
+                                                            "type": "string"
+                                                          },
+                                                          "operator": {
+                                                            "type": "string"
+                                                          },
+                                                          "values": {
+                                                            "items": {
+                                                              "type": "string"
+                                                            },
+                                                            "type": "array"
+                                                          }
+                                                        },
+                                                        "required": [
+                                                          "key",
+                                                          "operator"
+                                                        ],
+                                                        "type": "object",
+                                                        "additionalProperties": false
+                                                      },
+                                                      "type": "array"
+                                                    },
+                                                    "matchLabels": {
+                                                      "additionalProperties": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "object"
+                                                    }
+                                                  },
+                                                  "type": "object",
+                                                  "x-kubernetes-map-type": "atomic",
+                                                  "additionalProperties": false
+                                                },
+                                                "name": {
+                                                  "type": "string"
+                                                },
+                                                "optional": {
+                                                  "type": "boolean"
+                                                },
+                                                "path": {
+                                                  "type": "string"
+                                                },
+                                                "signerName": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "path"
+                                              ],
+                                              "type": "object",
+                                              "additionalProperties": false
+                                            },
                                             "configMap": {
                                               "properties": {
                                                 "items": {
@@ -6326,25 +6636,6 @@
                               },
                               "resources": {
                                 "properties": {
-                                  "claims": {
-                                    "items": {
-                                      "properties": {
-                                        "name": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "name"
-                                      ],
-                                      "type": "object",
-                                      "additionalProperties": false
-                                    },
-                                    "type": "array",
-                                    "x-kubernetes-list-map-keys": [
-                                      "name"
-                                    ],
-                                    "x-kubernetes-list-type": "map"
-                                  },
                                   "limits": {
                                     "additionalProperties": {
                                       "anyOf": [
@@ -6418,6 +6709,9 @@
                                 "additionalProperties": false
                               },
                               "storageClassName": {
+                                "type": "string"
+                              },
+                              "volumeAttributesClassName": {
                                 "type": "string"
                               },
                               "volumeMode": {
@@ -6504,6 +6798,11 @@
               "description": "Modify to add to the rabbitmq-env.conf file. Modifying this property on an existing RabbitmqCluster will trigger a StatefulSet rolling restart and will cause rabbitmq downtime. For more information on env config, see https://www.rabbitmq.com/man/rabbitmq-env.conf.5.html",
               "maxLength": 100000,
               "type": "string"
+            },
+            "erlangInetConfig": {
+              "description": "Erlang Inet configuration to apply to the Erlang VM running rabbit. See also: https://www.erlang.org/doc/apps/erts/inet_cfg.html",
+              "maxLength": 2000,
+              "type": "string"
             }
           },
           "type": "object",
@@ -6530,7 +6829,7 @@
           "description": "The desired compute resource requirements of Pods in the cluster.",
           "properties": {
             "claims": {
-              "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable.",
+              "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers.",
               "items": {
                 "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
                 "properties": {
@@ -6580,7 +6879,7 @@
                 "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
                 "x-kubernetes-int-or-string": true
               },
-              "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
               "type": "object"
             }
           },
@@ -6666,6 +6965,15 @@
               },
               "description": "Annotations to add to the Service.",
               "type": "object"
+            },
+            "ipFamilyPolicy": {
+              "description": "IPFamilyPolicy represents the dual-stack-ness requested or required by a Service See also: https://pkg.go.dev/k8s.io/api/core/v1#IPFamilyPolicy",
+              "enum": [
+                "SingleStack",
+                "PreferDualStack",
+                "RequireDualStack"
+              ],
+              "type": "string"
             },
             "type": {
               "default": "ClusterIP",
