@@ -16,7 +16,7 @@ url = 'https://raw.githubusercontent.com/gardener/oidc-webhook-authenticator/v0.
 
 [[crds]]
 apiVersion = 'cert-manager.io/v1'
-url = 'https://github.com/jetstack/cert-manager/releases/download/v1.12.1/cert-manager.crds.yaml'
+url = 'https://github.com/jetstack/cert-manager/releases/download/v1.14.4/cert-manager.crds.yaml'
 
 [[crds]]
 apiVersion = 'crd.projectcalico.org/v1'
