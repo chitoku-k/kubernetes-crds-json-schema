@@ -12,7 +12,7 @@ url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.11.0/manif
 
 [[crds]]
 apiVersion = 'authentication.gardener.cloud/v1alpha1'
-url = 'https://raw.githubusercontent.com/gardener/oidc-webhook-authenticator/v0.23.0/config/crd/bases/authentication.gardener.cloud_openidconnects.yaml'
+url = 'https://raw.githubusercontent.com/gardener/oidc-webhook-authenticator/v0.29.0/config/crd/bases/authentication.gardener.cloud_openidconnects.yaml'
 
 [[crds]]
 apiVersion = 'cert-manager.io/v1'
