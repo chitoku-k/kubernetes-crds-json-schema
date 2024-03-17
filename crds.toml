@@ -28,4 +28,4 @@ url = 'https://raw.githubusercontent.com/istio/istio/1.12.1/manifests/charts/bas
 
 [[crds]]
 apiVersion = 'rabbitmq.com/v1beta1'
-url = 'https://github.com/rabbitmq/cluster-operator/releases/download/v2.2.0/cluster-operator.yml'
+url = 'https://github.com/rabbitmq/cluster-operator/releases/download/v2.7.0/cluster-operator.yml'
