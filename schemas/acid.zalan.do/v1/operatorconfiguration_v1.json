@@ -30,7 +30,7 @@
         },
         "docker_image": {
           "type": "string",
-          "default": "ghcr.io/zalando/spilo-16:3.2-p2"
+          "default": "ghcr.io/zalando/spilo-16:3.3-p1"
         },
         "enable_crd_registration": {
           "type": "boolean",
@@ -153,7 +153,7 @@
           "properties": {
             "major_version_upgrade_mode": {
               "type": "string",
-              "default": "off"
+              "default": "manual"
             },
             "major_version_upgrade_team_allow_list": {
               "type": "array",
@@ -228,6 +228,10 @@
               "type": "boolean",
               "default": true
             },
+            "enable_owner_references": {
+              "type": "boolean",
+              "default": false
+            },
             "enable_persistent_volume_claim_deletion": {
               "type": "boolean",
               "default": true
@@ -243,6 +247,10 @@
             "enable_readiness_probe": {
               "type": "boolean",
               "default": false
+            },
+            "enable_secrets_deletion": {
+              "type": "boolean",
+              "default": true
             },
             "enable_sidecars": {
               "type": "boolean",
@@ -328,6 +336,10 @@
             "oauth_token_secret_name": {
               "type": "string",
               "default": "postgresql-operator"
+            },
+            "pdb_master_label_selector": {
+              "type": "boolean",
+              "default": true
             },
             "pdb_name_format": {
               "type": "string",
@@ -584,8 +596,7 @@
               "type": "string"
             },
             "additional_secret_mount_path": {
-              "type": "string",
-              "default": "/meta/credentials"
+              "type": "string"
             },
             "aws_region": {
               "type": "string",
@@ -642,7 +653,7 @@
             },
             "logical_backup_docker_image": {
               "type": "string",
-              "default": "registry.opensource.zalan.do/acid/logical-backup:v1.11.0"
+              "default": "ghcr.io/zalando/postgres-operator/logical-backup:v1.13.0"
             },
             "logical_backup_google_application_credentials": {
               "type": "string"
@@ -672,6 +683,9 @@
               "type": "string"
             },
             "logical_backup_s3_bucket": {
+              "type": "string"
+            },
+            "logical_backup_s3_bucket_prefix": {
               "type": "string"
             },
             "logical_backup_s3_endpoint": {
