@@ -11,10 +11,6 @@ apiVersion = 'acid.zalan.do/v1'
 url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.13.0/manifests/postgresteam.crd.yaml'
 
 [[crds]]
-apiVersion = 'authentication.gardener.cloud/v1alpha1'
-url = 'https://raw.githubusercontent.com/gardener/oidc-webhook-authenticator/v0.29.0/config/crd/bases/authentication.gardener.cloud_openidconnects.yaml'
-
-[[crds]]
 apiVersion = 'cert-manager.io/v1'
 url = 'https://github.com/jetstack/cert-manager/releases/download/v1.14.4/cert-manager.crds.yaml'
 
