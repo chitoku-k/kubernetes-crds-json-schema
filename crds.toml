@@ -1,14 +1,14 @@
 [[crds]]
 apiVersion = 'acid.zalan.do/v1'
-url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.11.0/manifests/operatorconfiguration.crd.yaml'
+url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.13.0/manifests/operatorconfiguration.crd.yaml'
 
 [[crds]]
 apiVersion = 'acid.zalan.do/v1'
-url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.11.0/manifests/postgresql.crd.yaml'
+url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.13.0/manifests/postgresql.crd.yaml'
 
 [[crds]]
 apiVersion = 'acid.zalan.do/v1'
-url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.11.0/manifests/postgresteam.crd.yaml'
+url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.13.0/manifests/postgresteam.crd.yaml'
 
 [[crds]]
 apiVersion = 'authentication.gardener.cloud/v1alpha1'
