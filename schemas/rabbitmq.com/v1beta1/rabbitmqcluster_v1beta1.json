@@ -265,7 +265,7 @@
                             "additionalProperties": false
                           },
                           "matchLabelKeys": {
-                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                             "items": {
                               "type": "string"
                             },
@@ -273,7 +273,7 @@
                             "x-kubernetes-list-type": "atomic"
                           },
                           "mismatchLabelKeys": {
-                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                             "items": {
                               "type": "string"
                             },
@@ -415,7 +415,7 @@
                         "additionalProperties": false
                       },
                       "matchLabelKeys": {
-                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                         "items": {
                           "type": "string"
                         },
@@ -423,7 +423,7 @@
                         "x-kubernetes-list-type": "atomic"
                       },
                       "mismatchLabelKeys": {
-                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                         "items": {
                           "type": "string"
                         },
@@ -562,7 +562,7 @@
                             "additionalProperties": false
                           },
                           "matchLabelKeys": {
-                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                             "items": {
                               "type": "string"
                             },
@@ -570,7 +570,7 @@
                             "x-kubernetes-list-type": "atomic"
                           },
                           "mismatchLabelKeys": {
-                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                             "items": {
                               "type": "string"
                             },
@@ -712,7 +712,7 @@
                         "additionalProperties": false
                       },
                       "matchLabelKeys": {
-                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                         "items": {
                           "type": "string"
                         },
@@ -720,7 +720,7 @@
                         "x-kubernetes-list-type": "atomic"
                       },
                       "mismatchLabelKeys": {
-                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
+                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
                         "items": {
                           "type": "string"
                         },
@@ -822,7 +822,7 @@
             "properties": {
               "name": {
                 "default": "",
-                "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nTODO: Add other useful fields. apiVersion, kind, uid?\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names\nTODO: Drop `kubebuilder:default` when controller-gen doesn't need it https://github.com/kubernetes-sigs/kubebuilder/issues/3896.",
+                "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                 "type": "string"
               }
             },
@@ -2214,6 +2214,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -2383,6 +2384,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -2514,6 +2516,9 @@
                                         "items": {
                                           "properties": {
                                             "name": {
+                                              "type": "string"
+                                            },
+                                            "request": {
                                               "type": "string"
                                             }
                                           },
@@ -2707,6 +2712,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -3362,6 +3368,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -3531,6 +3538,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -3662,6 +3670,9 @@
                                         "items": {
                                           "properties": {
                                             "name": {
+                                              "type": "string"
+                                            },
+                                            "request": {
                                               "type": "string"
                                             }
                                           },
@@ -3855,6 +3866,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -4530,6 +4542,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -4699,6 +4712,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -4830,6 +4844,9 @@
                                         "items": {
                                           "properties": {
                                             "name": {
+                                              "type": "string"
+                                            },
+                                            "request": {
                                               "type": "string"
                                             }
                                           },
@@ -5023,6 +5040,7 @@
                                             "type": "integer"
                                           },
                                           "service": {
+                                            "default": "",
                                             "type": "string"
                                           }
                                         },
@@ -5289,17 +5307,11 @@
                                   "name": {
                                     "type": "string"
                                   },
-                                  "source": {
-                                    "properties": {
-                                      "resourceClaimName": {
-                                        "type": "string"
-                                      },
-                                      "resourceClaimTemplateName": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "type": "object",
-                                    "additionalProperties": false
+                                  "resourceClaimName": {
+                                    "type": "string"
+                                  },
+                                  "resourceClaimTemplateName": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
@@ -5417,6 +5429,9 @@
                                   },
                                   "type": "array",
                                   "x-kubernetes-list-type": "atomic"
+                                },
+                                "supplementalGroupsPolicy": {
+                                  "type": "string"
                                 },
                                 "sysctls": {
                                   "items": {
@@ -5628,12 +5643,14 @@
                                         "type": "string"
                                       },
                                       "fsType": {
+                                        "default": "ext4",
                                         "type": "string"
                                       },
                                       "kind": {
                                         "type": "string"
                                       },
                                       "readOnly": {
+                                        "default": false,
                                         "type": "boolean"
                                       }
                                     },
@@ -6215,6 +6232,18 @@
                                     "type": "object",
                                     "additionalProperties": false
                                   },
+                                  "image": {
+                                    "properties": {
+                                      "pullPolicy": {
+                                        "type": "string"
+                                      },
+                                      "reference": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object",
+                                    "additionalProperties": false
+                                  },
                                   "iscsi": {
                                     "properties": {
                                       "chapAuthDiscovery": {
@@ -6233,6 +6262,7 @@
                                         "type": "string"
                                       },
                                       "iscsiInterface": {
+                                        "default": "default",
                                         "type": "string"
                                       },
                                       "lun": {
@@ -6625,6 +6655,7 @@
                                         "type": "string"
                                       },
                                       "keyring": {
+                                        "default": "/etc/ceph/keyring",
                                         "type": "string"
                                       },
                                       "monitors": {
@@ -6635,6 +6666,7 @@
                                         "x-kubernetes-list-type": "atomic"
                                       },
                                       "pool": {
+                                        "default": "rbd",
                                         "type": "string"
                                       },
                                       "readOnly": {
@@ -6652,6 +6684,7 @@
                                         "additionalProperties": false
                                       },
                                       "user": {
+                                        "default": "admin",
                                         "type": "string"
                                       }
                                     },
@@ -6665,6 +6698,7 @@
                                   "scaleIO": {
                                     "properties": {
                                       "fsType": {
+                                        "default": "xfs",
                                         "type": "string"
                                       },
                                       "gateway": {
@@ -6691,6 +6725,7 @@
                                         "type": "boolean"
                                       },
                                       "storageMode": {
+                                        "default": "ThinProvisioned",
                                         "type": "string"
                                       },
                                       "storagePool": {
@@ -7136,12 +7171,16 @@
           "description": "The desired compute resource requirements of Pods in the cluster.",
           "properties": {
             "claims": {
-              "description": "Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\n\nThis field is immutable. It can only be set for containers.",
+              "description": "Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
               "items": {
                 "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
                 "properties": {
                   "name": {
                     "description": "Name must match the name of one entry in pod.spec.resourceClaims of\nthe Pod where this field is used. It makes that resource available\ninside a container.",
+                    "type": "string"
+                  },
+                  "request": {
+                    "description": "Request is the name chosen for a request in the referenced claim.\nIf empty, everything from the claim is made available, otherwise\nonly the result of this request.",
                     "type": "string"
                   }
                 },
@@ -7201,7 +7240,7 @@
               "properties": {
                 "name": {
                   "default": "",
-                  "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nTODO: Add other useful fields. apiVersion, kind, uid?\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names\nTODO: Drop `kubebuilder:default` when controller-gen doesn't need it https://github.com/kubernetes-sigs/kubebuilder/issues/3896.",
+                  "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                   "type": "string"
                 }
               },
@@ -7375,7 +7414,7 @@
           "properties": {
             "name": {
               "default": "",
-              "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nTODO: Add other useful fields. apiVersion, kind, uid?\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names\nTODO: Drop `kubebuilder:default` when controller-gen doesn't need it https://github.com/kubernetes-sigs/kubebuilder/issues/3896.",
+              "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
               "type": "string"
             }
           },
