@@ -265,7 +265,7 @@
                             "additionalProperties": false
                           },
                           "matchLabelKeys": {
-                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.",
                             "items": {
                               "type": "string"
                             },
@@ -273,7 +273,7 @@
                             "x-kubernetes-list-type": "atomic"
                           },
                           "mismatchLabelKeys": {
-                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.",
                             "items": {
                               "type": "string"
                             },
@@ -415,7 +415,7 @@
                         "additionalProperties": false
                       },
                       "matchLabelKeys": {
-                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.",
                         "items": {
                           "type": "string"
                         },
@@ -423,7 +423,7 @@
                         "x-kubernetes-list-type": "atomic"
                       },
                       "mismatchLabelKeys": {
-                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.",
                         "items": {
                           "type": "string"
                         },
@@ -562,7 +562,7 @@
                             "additionalProperties": false
                           },
                           "matchLabelKeys": {
-                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.",
                             "items": {
                               "type": "string"
                             },
@@ -570,7 +570,7 @@
                             "x-kubernetes-list-type": "atomic"
                           },
                           "mismatchLabelKeys": {
-                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.",
                             "items": {
                               "type": "string"
                             },
@@ -712,7 +712,7 @@
                         "additionalProperties": false
                       },
                       "matchLabelKeys": {
-                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                        "description": "MatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both matchLabelKeys and labelSelector.\nAlso, matchLabelKeys cannot be set when labelSelector isn't set.",
                         "items": {
                           "type": "string"
                         },
@@ -720,7 +720,7 @@
                         "x-kubernetes-list-type": "atomic"
                       },
                       "mismatchLabelKeys": {
-                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.\nThis is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                        "description": "MismatchLabelKeys is a set of pod label keys to select which pods will\nbe taken into consideration. The keys are used to lookup values from the\nincoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)`\nto select the group of existing pods which pods will be taken into consideration\nfor the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming\npod labels will be ignored. The default value is empty.\nThe same key is forbidden to exist in both mismatchLabelKeys and labelSelector.\nAlso, mismatchLabelKeys cannot be set when labelSelector isn't set.",
                         "items": {
                           "type": "string"
                         },
@@ -803,6 +803,10 @@
           },
           "type": "object",
           "additionalProperties": false
+        },
+        "autoEnableAllFeatureFlags": {
+          "description": "Set to true to automatically enable all feature flags after each upgrade\nFor more information, see https://www.rabbitmq.com/docs/feature-flags",
+          "type": "boolean"
         },
         "delayStartSeconds": {
           "default": 30,
@@ -2183,6 +2187,9 @@
                                         },
                                         "type": "object",
                                         "additionalProperties": false
+                                      },
+                                      "stopSignal": {
+                                        "type": "string"
                                       }
                                     },
                                     "type": "object",
@@ -3337,6 +3344,9 @@
                                         },
                                         "type": "object",
                                         "additionalProperties": false
+                                      },
+                                      "stopSignal": {
+                                        "type": "string"
                                       }
                                     },
                                     "type": "object",
@@ -4511,6 +4521,9 @@
                                         },
                                         "type": "object",
                                         "additionalProperties": false
+                                      },
+                                      "stopSignal": {
+                                        "type": "string"
                                       }
                                     },
                                     "type": "object",
@@ -5326,6 +5339,64 @@
                               ],
                               "x-kubernetes-list-type": "map"
                             },
+                            "resources": {
+                              "properties": {
+                                "claims": {
+                                  "items": {
+                                    "properties": {
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "request": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "type": "object",
+                                    "additionalProperties": false
+                                  },
+                                  "type": "array",
+                                  "x-kubernetes-list-map-keys": [
+                                    "name"
+                                  ],
+                                  "x-kubernetes-list-type": "map"
+                                },
+                                "limits": {
+                                  "additionalProperties": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                                    "x-kubernetes-int-or-string": true
+                                  },
+                                  "type": "object"
+                                },
+                                "requests": {
+                                  "additionalProperties": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                                    "x-kubernetes-int-or-string": true
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object",
+                              "additionalProperties": false
+                            },
                             "restartPolicy": {
                               "type": "string"
                             },
@@ -5388,6 +5459,9 @@
                                 "runAsUser": {
                                   "format": "int64",
                                   "type": "integer"
+                                },
+                                "seLinuxChangePolicy": {
+                                  "type": "string"
                                 },
                                 "seLinuxOptions": {
                                   "properties": {
@@ -7326,6 +7400,12 @@
               ],
               "type": "string"
             },
+            "labels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
             "type": {
               "default": "ClusterIP",
               "description": "Type of Service to create for the cluster. Must be one of: ClusterIP, LoadBalancer, NodePort.\nFor more info see https://pkg.go.dev/k8s.io/api/core/v1#ServiceType",
@@ -7355,7 +7435,7 @@
           "description": "TLS-related configuration for the RabbitMQ cluster.",
           "properties": {
             "caSecretName": {
-              "description": "Name of a Secret in the same Namespace as the RabbitmqCluster, containing the Certificate Authority's public certificate for TLS.\nThe Secret must store this as ca.crt.\nThis Secret can be created by running `kubectl create secret generic ca-secret --from-file=ca.crt=path/to/ca.cert`\nUsed for mTLS, and TLS for rabbitmq_web_stomp and rabbitmq_web_mqtt.",
+              "description": "Name of a Secret in the same Namespace as the RabbitmqCluster, containing the Certificate Authority's public certificate for TLS.\nThe Secret must store this as ca.crt.\nThis Secret can be created by running `kubectl create secret generic ca-secret --from-file=ca.crt=path/to/ca.crt`\nUsed for mTLS, and TLS for rabbitmq_web_stomp and rabbitmq_web_mqtt.",
               "type": "string"
             },
             "disableNonTLSListeners": {
@@ -7363,7 +7443,7 @@
               "type": "boolean"
             },
             "secretName": {
-              "description": "Name of a Secret in the same Namespace as the RabbitmqCluster, containing the server's private key & public certificate for TLS.\nThe Secret must store these as tls.key and tls.crt, respectively.\nThis Secret can be created by running `kubectl create secret tls tls-secret --cert=path/to/tls.cert --key=path/to/tls.key`",
+              "description": "Name of a Secret in the same Namespace as the RabbitmqCluster, containing the server's private key & public certificate for TLS.\nThe Secret must store these as tls.key and tls.crt, respectively.\nThis Secret can be created by running `kubectl create secret tls tls-secret --cert=path/to/tls.crt --key=path/to/tls.key`",
               "type": "string"
             }
           },

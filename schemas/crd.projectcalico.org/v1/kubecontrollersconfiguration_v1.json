@@ -1,11 +1,11 @@
 {
   "properties": {
     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "type": "string"
     },
     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "type": "string"
     },
     "metadata": {
@@ -17,6 +17,16 @@
         "controllers": {
           "description": "Controllers enables and configures individual Kubernetes controllers",
           "properties": {
+            "loadBalancer": {
+              "description": "LoadBalancer enables and configures the LoadBalancer controller. Enabled by default, set to nil to disable.",
+              "properties": {
+                "assignIPs": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
             "namespace": {
               "description": "Namespace enables and configures the namespace controller. Enabled by default, set to nil to disable.",
               "properties": {
@@ -37,13 +47,48 @@
                     "autoCreate": {
                       "description": "AutoCreate enables automatic creation of host endpoints for every node. [Default: Disabled]",
                       "type": "string"
+                    },
+                    "createDefaultHostEndpoint": {
+                      "type": "string"
+                    },
+                    "templates": {
+                      "description": "Templates contains definition for creating AutoHostEndpoints",
+                      "items": {
+                        "properties": {
+                          "generateName": {
+                            "description": "GenerateName is appended to the end of the generated AutoHostEndpoint name",
+                            "type": "string"
+                          },
+                          "interfaceCIDRs": {
+                            "description": "InterfaceCIDRs contains a list of CIRDs used for matching nodeIPs to the AutoHostEndpoint",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "labels": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "Labels adds the specified labels to the generated AutoHostEndpoint, labels from node with the same name will be overwritten by values from the template label",
+                            "type": "object"
+                          },
+                          "nodeSelector": {
+                            "description": "NodeSelector allows the AutoHostEndpoint to be created only for specific nodes",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "additionalProperties": false
+                      },
+                      "type": "array"
                     }
                   },
                   "type": "object",
                   "additionalProperties": false
                 },
                 "leakGracePeriod": {
-                  "description": "LeakGracePeriod is the period used by the controller to determine if an IP address has been leaked. Set to 0 to disable IP garbage collection. [Default: 15m]",
+                  "description": "LeakGracePeriod is the period used by the controller to determine if an IP address has been leaked.\nSet to 0 to disable IP garbage collection. [Default: 15m]",
                   "type": "string"
                 },
                 "reconcilerPeriod": {
@@ -96,7 +141,7 @@
           "additionalProperties": false
         },
         "debugProfilePort": {
-          "description": "DebugProfilePort configures the port to serve memory and cpu profiles on. If not specified, profiling is disabled.",
+          "description": "DebugProfilePort configures the port to serve memory and cpu profiles on. If not specified, profiling\nis disabled.",
           "format": "int32",
           "type": "integer"
         },
@@ -124,21 +169,31 @@
       "additionalProperties": false
     },
     "status": {
-      "description": "KubeControllersConfigurationStatus represents the status of the configuration. It's useful for admins to be able to see the actual config that was applied, which can be modified by environment variables on the kube-controllers process.",
+      "description": "KubeControllersConfigurationStatus represents the status of the configuration. It's useful for admins to\nbe able to see the actual config that was applied, which can be modified by environment variables on the\nkube-controllers process.",
       "properties": {
         "environmentVars": {
           "additionalProperties": {
             "type": "string"
           },
-          "description": "EnvironmentVars contains the environment variables on the kube-controllers that influenced the RunningConfig.",
+          "description": "EnvironmentVars contains the environment variables on the kube-controllers that influenced\nthe RunningConfig.",
           "type": "object"
         },
         "runningConfig": {
-          "description": "RunningConfig contains the effective config that is running in the kube-controllers pod, after merging the API resource with any environment variables.",
+          "description": "RunningConfig contains the effective config that is running in the kube-controllers pod, after\nmerging the API resource with any environment variables.",
           "properties": {
             "controllers": {
               "description": "Controllers enables and configures individual Kubernetes controllers",
               "properties": {
+                "loadBalancer": {
+                  "description": "LoadBalancer enables and configures the LoadBalancer controller. Enabled by default, set to nil to disable.",
+                  "properties": {
+                    "assignIPs": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "additionalProperties": false
+                },
                 "namespace": {
                   "description": "Namespace enables and configures the namespace controller. Enabled by default, set to nil to disable.",
                   "properties": {
@@ -159,13 +214,48 @@
                         "autoCreate": {
                           "description": "AutoCreate enables automatic creation of host endpoints for every node. [Default: Disabled]",
                           "type": "string"
+                        },
+                        "createDefaultHostEndpoint": {
+                          "type": "string"
+                        },
+                        "templates": {
+                          "description": "Templates contains definition for creating AutoHostEndpoints",
+                          "items": {
+                            "properties": {
+                              "generateName": {
+                                "description": "GenerateName is appended to the end of the generated AutoHostEndpoint name",
+                                "type": "string"
+                              },
+                              "interfaceCIDRs": {
+                                "description": "InterfaceCIDRs contains a list of CIRDs used for matching nodeIPs to the AutoHostEndpoint",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "labels": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Labels adds the specified labels to the generated AutoHostEndpoint, labels from node with the same name will be overwritten by values from the template label",
+                                "type": "object"
+                              },
+                              "nodeSelector": {
+                                "description": "NodeSelector allows the AutoHostEndpoint to be created only for specific nodes",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "additionalProperties": false
+                          },
+                          "type": "array"
                         }
                       },
                       "type": "object",
                       "additionalProperties": false
                     },
                     "leakGracePeriod": {
-                      "description": "LeakGracePeriod is the period used by the controller to determine if an IP address has been leaked. Set to 0 to disable IP garbage collection. [Default: 15m]",
+                      "description": "LeakGracePeriod is the period used by the controller to determine if an IP address has been leaked.\nSet to 0 to disable IP garbage collection. [Default: 15m]",
                       "type": "string"
                     },
                     "reconcilerPeriod": {
@@ -218,7 +308,7 @@
               "additionalProperties": false
             },
             "debugProfilePort": {
-              "description": "DebugProfilePort configures the port to serve memory and cpu profiles on. If not specified, profiling is disabled.",
+              "description": "DebugProfilePort configures the port to serve memory and cpu profiles on. If not specified, profiling\nis disabled.",
               "format": "int32",
               "type": "integer"
             },
