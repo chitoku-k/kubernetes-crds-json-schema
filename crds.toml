@@ -11,6 +11,22 @@ apiVersion = 'acid.zalan.do/v1'
 url = 'https://raw.githubusercontent.com/zalando/postgres-operator/v1.14.0/manifests/postgresteam.crd.yaml'
 
 [[crds]]
+apiVersion = 'awx.ansible.com/v1beta1'
+url = 'https://github.com/ansible/awx-operator/raw/refs/tags/2.19.1/config/crd/bases/awx.ansible.com_awxbackups.yaml'
+
+[[crds]]
+apiVersion = 'awx.ansible.com/v1beta1'
+url = 'https://github.com/ansible/awx-operator/raw/refs/tags/2.19.1/config/crd/bases/awx.ansible.com_awxmeshingresses.yaml'
+
+[[crds]]
+apiVersion = 'awx.ansible.com/v1beta1'
+url = 'https://github.com/ansible/awx-operator/raw/refs/tags/2.19.1/config/crd/bases/awx.ansible.com_awxrestores.yaml'
+
+[[crds]]
+apiVersion = 'awx.ansible.com/v1beta1'
+url = 'https://github.com/ansible/awx-operator/raw/refs/tags/2.19.1/config/crd/bases/awx.ansible.com_awxs.yaml'
+
+[[crds]]
 apiVersion = 'cert-manager.io/v1'
 url = 'https://github.com/jetstack/cert-manager/releases/download/v1.18.2/cert-manager.crds.yaml'
 
