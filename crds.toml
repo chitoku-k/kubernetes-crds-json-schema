@@ -32,7 +32,7 @@ url = 'https://github.com/jetstack/cert-manager/releases/download/v1.19.4/cert-m
 
 [[crds]]
 apiVersion = 'crd.projectcalico.org/v1'
-url = 'https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/crds.yaml'
+url = 'https://raw.githubusercontent.com/projectcalico/calico/v3.31.4/manifests/crds.yaml'
 
 [[crds]]
 apiVersion = 'networking.istio.io/v1alpha3'
