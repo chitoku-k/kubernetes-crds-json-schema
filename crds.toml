@@ -28,7 +28,7 @@ url = 'https://github.com/ansible/awx-operator/raw/refs/tags/2.19.1/config/crd/b
 
 [[crds]]
 apiVersion = 'cert-manager.io/v1'
-url = 'https://github.com/jetstack/cert-manager/releases/download/v1.18.2/cert-manager.crds.yaml'
+url = 'https://github.com/jetstack/cert-manager/releases/download/v1.19.4/cert-manager.crds.yaml'
 
 [[crds]]
 apiVersion = 'crd.projectcalico.org/v1'
