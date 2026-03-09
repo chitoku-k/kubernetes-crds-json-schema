@@ -31,7 +31,31 @@ apiVersion = 'cert-manager.io/v1'
 url = 'https://github.com/jetstack/cert-manager/releases/download/v1.19.4/cert-manager.crds.yaml'
 
 [[crds]]
+apiVersion = 'addons.cluster.x-k8s.io/v1beta2'
+url = 'https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/cluster-api-components.yaml'
+
+[[crds]]
+apiVersion = 'bootstrap.cluster.x-k8s.io/v1beta2'
+url = 'https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/cluster-api-components.yaml'
+
+[[crds]]
 apiVersion = 'cluster.x-k8s.io/v1beta2'
+url = 'https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/cluster-api-components.yaml'
+
+[[crds]]
+apiVersion = 'controlplane.cluster.x-k8s.io/v1beta2'
+url = 'https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/cluster-api-components.yaml'
+
+[[crds]]
+apiVersion = 'controlplane.cluster.x-k8s.io/v1beta3'
+url = 'https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/cluster-api-components.yaml'
+
+[[crds]]
+apiVersion = 'ipam.cluster.x-k8s.io/v1beta2'
+url = 'https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/cluster-api-components.yaml'
+
+[[crds]]
+apiVersion = 'runtime.cluster.x-k8s.io/v1beta2'
 url = 'https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/cluster-api-components.yaml'
 
 [[crds]]
