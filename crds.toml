@@ -39,6 +39,14 @@ apiVersion = 'crd.projectcalico.org/v1'
 url = 'https://raw.githubusercontent.com/projectcalico/calico/v3.31.4/manifests/crds.yaml'
 
 [[crds]]
+apiVersion = 'infrastructure.cluster.x-k8s.io/v1alpha1'
+url = 'https://github.com/kubernetes-sigs/cluster-api-provider-kubevirt/releases/download/v0.11.2/infrastructure-components.yaml'
+
+[[crds]]
+apiVersion = 'infrastructure.cluster.x-k8s.io/v1beta1'
+url = 'https://github.com/vultr/cluster-api-provider-vultr/releases/download/v0.4.0/infrastructure-components.yaml'
+
+[[crds]]
 apiVersion = 'networking.istio.io/v1alpha3'
 url = 'https://raw.githubusercontent.com/istio/istio/1.12.1/manifests/charts/base/crds/crd-all.gen.yaml'
 
