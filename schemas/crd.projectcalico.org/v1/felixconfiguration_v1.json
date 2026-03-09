@@ -32,6 +32,14 @@
           ],
           "type": "string"
         },
+        "bpfAttachType": {
+          "description": "BPFAttachType controls how are the BPF programs at the network interfaces attached.\nBy default `TCX` is used where available to enable easier coexistence with 3rd party programs.\n`TC` can force the legacy method of attaching via a qdisc. `TCX` falls back to `TC` if `TCX` is not available.\n[Default: TCX]",
+          "enum": [
+            "TC",
+            "TCX"
+          ],
+          "type": "string"
+        },
         "bpfCTLBLogFilter": {
           "description": "BPFCTLBLogFilter specifies, what is logged by connect time load balancer when BPFLogLevel is\ndebug. Currently has to be specified as 'all' when BPFLogFilters is set\nto see CTLB logs.\n[Default: unset - means logs are emitted when BPFLogLevel id debug and BPFLogFilters not set.]",
           "type": "string"
@@ -58,7 +66,7 @@
           "type": "string"
         },
         "bpfConntrackMode": {
-          "description": "BPFConntrackCleanupMode controls how BPF conntrack entries are cleaned up.  `Auto` will use a BPF program if supported,\nfalling back to userspace if not.  `Userspace` will always use the userspace cleanup code.  `BPFProgram` will\nalways use the BPF program (failing if not supported).\n[Default: Auto]",
+          "description": "BPFConntrackCleanupMode controls how BPF conntrack entries are cleaned up.  `Auto` will use a BPF program if supported,\nfalling back to userspace if not.  `Userspace` will always use the userspace cleanup code.  `BPFProgram` will\nalways use the BPF program (failing if not supported).\n\n/To be deprecated in future versions as conntrack map type changed to\nlru_hash and userspace cleanup is the only mode that is supported.\n[Default: Userspace]",
           "enum": [
             "Auto",
             "Userspace",
@@ -70,7 +78,7 @@
           "description": "BPFConntrackTimers overrides the default values for the specified conntrack timer if\nset. Each value can be either a duration or `Auto` to pick the value from\na Linux conntrack timeout.\n\nConfigurable timers are: CreationGracePeriod, TCPSynSent,\nTCPEstablished, TCPFinsSeen, TCPResetSeen, UDPTimeout, GenericTimeout,\nICMPTimeout.\n\nUnset values are replaced by the default values with a warning log for\nincorrect values.",
           "properties": {
             "creationGracePeriod": {
-              "description": " CreationGracePeriod gives a generic grace period to new connection\n before they are considered for cleanup [Default: 10s].",
+              "description": "CreationGracePeriod gives a generic grace period to new connections\nbefore they are considered for cleanup [Default: 10s].",
               "pattern": "^(([0-9]*(\\.[0-9]*)?(ms|s|h|m|us)+)+|Auto)$",
               "type": "string"
             },
@@ -180,9 +188,31 @@
           ],
           "type": "string"
         },
+        "bpfJITHardening": {
+          "allOf": [
+            {
+              "enum": [
+                "Auto",
+                "Strict"
+              ]
+            },
+            {
+              "enum": [
+                "Auto",
+                "Strict"
+              ]
+            }
+          ],
+          "description": "BPFJITHardening controls BPF JIT hardening. When set to \"Auto\", Felix will set JIT hardening to 1\nif it detects the current value is 2 (strict mode that hurts performance). When set to \"Strict\",\nFelix will not modify the JIT hardening setting. [Default: Auto]",
+          "type": "string"
+        },
         "bpfKubeProxyEndpointSlicesEnabled": {
           "description": "BPFKubeProxyEndpointSlicesEnabled is deprecated and has no effect. BPF\nkube-proxy always accepts endpoint slices. This option will be removed in\nthe next release.",
           "type": "boolean"
+        },
+        "bpfKubeProxyHealthzPort": {
+          "description": "BPFKubeProxyHealthzPort, in BPF mode, controls the port that Felix's embedded kube-proxy health check server binds to.\nThe health check server is used by external load balancers to determine if this node should receive traffic.  [Default: 10256]",
+          "type": "integer"
         },
         "bpfKubeProxyIptablesCleanupEnabled": {
           "description": "BPFKubeProxyIptablesCleanupEnabled, if enabled in BPF mode, Felix will proactively clean up the upstream\nKubernetes kube-proxy's iptables chains.  Should only be enabled if kube-proxy is not running.  [Default: true]",
@@ -283,6 +313,10 @@
             "Disabled",
             "L2Only"
           ],
+          "type": "string"
+        },
+        "cgroupV2Path": {
+          "description": "CgroupV2Path overrides the default location where to find the cgroup hierarchy.",
           "type": "string"
         },
         "chainInsertMode": {
@@ -618,6 +652,17 @@
           },
           "type": "array"
         },
+        "logActionRateLimit": {
+          "description": "LogActionRateLimit sets the rate of hitting a Log action. The value must be in the format \"N/unit\",\nwhere N is a number and unit is one of: second, minute, hour, or day. For example: \"10/second\" or \"100/hour\".",
+          "pattern": "^[1-9]\\d{0,3}/(?:second|minute|hour|day)$",
+          "type": "string"
+        },
+        "logActionRateLimitBurst": {
+          "description": "LogActionRateLimitBurst sets the rate limit burst of hitting a Log action when LogActionRateLimit is enabled.",
+          "maximum": 9999,
+          "minimum": 0,
+          "type": "integer"
+        },
         "logDebugFilenameRegex": {
           "description": "LogDebugFilenameRegex controls which source code files have their Debug log output included in the logs.\nOnly logs from files with names that match the given regular expression are included.  The filter only applies\nto Debug level logs.",
           "type": "string"
@@ -627,7 +672,8 @@
           "type": "string"
         },
         "logPrefix": {
-          "description": "LogPrefix is the log prefix that Felix uses when rendering LOG rules. [Default: calico-packet]",
+          "description": "LogPrefix is the log prefix that Felix uses when rendering LOG rules. It is possible to use the following specifiers\nto include extra information in the log prefix.\n- %t: Tier name.\n- %k: Kind (short names).\n- %n: Policy or profile name.\n- %p: Policy or profile name (namespace/name for namespaced kinds or just name for non namespaced kinds).\nCalico includes \": \" characters at the end of the generated log prefix.\nNote that iptables shows up to 29 characters for the log prefix and nftables up to 127 characters. Extra characters are truncated.\n[Default: calico-packet]",
+          "pattern": "^([a-zA-Z0-9%: /_-])*$",
           "type": "string"
         },
         "logSeverityFile": {
@@ -663,6 +709,14 @@
         },
         "natOutgoingAddress": {
           "description": "NATOutgoingAddress specifies an address to use when performing source NAT for traffic in a natOutgoing pool that\nis leaving the network. By default the address used is an address on the interface the traffic is leaving on\n(i.e. it uses the iptables MASQUERADE target).",
+          "type": "string"
+        },
+        "natOutgoingExclusions": {
+          "description": "When a IP pool setting `natOutgoing` is true, packets sent from Calico networked containers in this IP pool to destinations will be masqueraded.\nConfigure which type of destinations is excluded from being masqueraded.\n- IPPoolsOnly: destinations outside of this IP pool will be masqueraded.\n- IPPoolsAndHostIPs: destinations outside of this IP pool and all hosts will be masqueraded.\n[Default: IPPoolsOnly]",
+          "enum": [
+            "IPPoolsOnly",
+            "IPPoolsAndHostIPs"
+          ],
           "type": "string"
         },
         "natPortRange": {
@@ -724,6 +778,14 @@
           "description": "PolicySyncPathPrefix is used to by Felix to communicate policy changes to external services,\nlike Application layer policy. [Default: Empty]",
           "type": "string"
         },
+        "programClusterRoutes": {
+          "description": "ProgramClusterRoutes specifies whether Felix should program IPIP routes instead of BIRD.\nFelix always programs VXLAN routes. [Default: Disabled]",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ],
+          "type": "string"
+        },
         "prometheusGoMetricsEnabled": {
           "description": "PrometheusGoMetricsEnabled disables Go runtime metrics collection, which the Prometheus client does by default, when\nset to false. This reduces the number of metrics reported, reducing Prometheus load. [Default: true]",
           "type": "boolean"
@@ -761,6 +823,10 @@
           "description": "ReportingTTL is the time-to-live setting for process-wide status reports. [Default: 90s]",
           "pattern": "^([0-9]+(\\\\.[0-9]+)?(ms|s|m|h))*$",
           "type": "string"
+        },
+        "requireMTUFile": {
+          "description": "RequireMTUFile specifies whether mtu file is required to start the felix.\nOptional as to keep the same as previous behavior. [Default: false]",
+          "type": "boolean"
         },
         "routeRefreshInterval": {
           "description": "RouteRefreshInterval is the period at which Felix re-checks the routes\nin the dataplane to ensure that no other process has accidentally broken Calico's rules.\nSet to 0 to disable route refresh. [Default: 90s]",
